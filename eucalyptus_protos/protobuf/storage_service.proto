@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package senseye.storage;
+
+message StorageRequest {
+    repeated bytes content = 1;
+    string video_id = 2;
+}
+
+message StorageResponse {
+    string message = 1;
+}
+
+service Storage {
+    rpc StoreVideo(StorageRequest)
+        returns (StorageResponse);
+}

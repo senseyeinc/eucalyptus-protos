@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package senseye.gateway;
+
+import "compute_service.proto";
+
+service Gateway {
+    rpc AnalyzeVideoStream(stream senseye.compute.VideoStreamRequest)
+        returns (stream senseye.compute.VideoStreamResponse);
+
+    rpc AnalyzeVideo(senseye.compute.VideoStaticRequest)
+        returns (stream senseye.compute.VideoStreamResponse);
+}
