@@ -18,6 +18,7 @@ setup(
         'eucalyptus_protos': 'eucalyptus_protos/python_protos',
     },
     install_requires=[
+        'protobuf',
         'grpcio-tools',
     ],
 )
