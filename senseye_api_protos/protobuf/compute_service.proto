@@ -2,32 +2,11 @@ syntax = "proto3";
 
 package senseye.compute;
 import "common.proto";
-import "status.proto";
-
-message VideoStreamRequest {
-    oneof video_request {
-        VideoConfig video_config = 1;
-        bytes content = 2;
-    }
-}
-
-message VideoStreamResponse {
-    // Returns a message that specifies the error for the operation.
-    senseye.Status error = 1;
-
-    // Streaming annotation results.
-    repeated senseye.Result results = 2;
-}
-
-message VideoStaticRequest {
-    repeated Feature features = 1;
-    string video_uri = 2;
-}
 
 service Compute {
-    rpc AnalyzeVideoStream(stream VideoStreamRequest)
-        returns (stream VideoStreamResponse);
+    rpc AnalyzeVideoStream(stream senseye.VideoStreamRequest)
+        returns (stream senseye.VideoStreamResponse);
 
-    rpc AnalyzeVideoStatic(VideoStaticRequest)
-        returns (stream VideoStreamResponse);
+    rpc AnalyzeVideoStatic(senseye.VideoStaticRequest)
+        returns (stream senseye.VideoStreamResponse);
 }

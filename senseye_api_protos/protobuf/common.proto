@@ -1,5 +1,6 @@
 syntax = "proto3";
 
+import "status.proto";
 package senseye;
 
 // Streaming video annotation feature.
@@ -179,4 +180,27 @@ message VideoConfig {
 
     // determines whether 'content' will be stored in s3 or not.
     bool store = 6;
+}
+
+// Dictates how stream requests are formed
+message VideoStreamRequest {
+    oneof video_request {
+        VideoConfig video_config = 1;
+        bytes content = 2;
+    }
+}
+
+// Dictates how stream responses are formed
+message VideoStreamResponse {
+    // Returns a message that specifies the error for the operation.
+    senseye.Status error = 1;
+
+    // Streaming annotation results.
+    repeated senseye.Result results = 2;
+}
+
+// Dicatates how recorded video requests are formed
+message VideoStaticRequest {
+    repeated Feature features = 1;
+    string video_uri = 2;
 }
