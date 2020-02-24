@@ -21,4 +21,9 @@ setup(
         'protobuf',
         'grpcio-tools',
     ],
+    project_urls={
+        "Source Code": "https://github.com/senseyeinc/senseye-api-protos",
+        "Documentation": "https://github.com/senseyeinc/senseye-api-protos",
+        "Homepage": "http://senseye.co/",
+    },
 )
