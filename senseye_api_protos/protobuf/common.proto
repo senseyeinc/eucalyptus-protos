@@ -1,0 +1,182 @@
+syntax = "proto3";
+
+package senseye;
+
+// Streaming video annotation feature.
+enum Feature {
+    UNSPECIFIED = 0;
+    UNET_METRICS = 1;
+    INSTAEYES_METRICS = 2;
+    GAZE_METRICS = 3;
+    COGNITIVE_LOAD = 4;
+}
+
+// Unet features result. These values are produced by Core-Pipeline UnetPipeline()
+message UnetMetricsResult {
+    float iris_centers_right_x = 1;
+    float iris_centers_right_y = 2;
+    float iris_area_right = 3;
+    float pupil_centers_right_x = 4;
+    float pupil_centers_right_y = 5;
+    float pupil_area_right = 6;
+    float iris_centers_left_x = 7;
+    float iris_centers_left_y = 8;
+    float iris_area_left = 9;
+    float pupil_centers_left_x = 10;
+    float pupil_centers_left_y = 11;
+    float pupil_area_left = 12;
+}
+
+// InstaEyes features result. These values are produced by Core-Pipeline InstaEyesPipeline()
+message InstaEyesMetricsResult {
+    float iris_centers_right_x = 1;
+    float iris_centers_right_y = 2;
+    float iris_area_right = 3;
+    float pupil_centers_right_x = 4;
+    float pupil_centers_right_y = 5;
+    float pupil_area_right = 6;
+    float iris_centers_left_x = 7;
+    float iris_centers_left_y = 8;
+    float iris_area_left = 9;
+    float pupil_centers_left_x = 10;
+    float pupil_centers_left_y = 11;
+    float pupil_area_left = 12;
+    float ipd = 13;
+}
+
+// Gaze features result. These values are produced by Core-Pipeline GazePipeline()
+message GazeMetricsResult {
+    float iris_centers_right_x = 1;
+    float iris_centers_right_y = 2;
+    float iris_area_right = 3;
+    float pupil_centers_right_x = 4;
+    float pupil_centers_right_y = 5;
+    float pupil_area_right = 6;
+    float iris_centers_left_x = 7;
+    float iris_centers_left_y = 8;
+    float iris_area_left = 9;
+    float pupil_centers_left_x = 10;
+    float pupil_centers_left_y = 11;
+    float pupil_area_left = 12;
+    float right_glint1_x = 13;
+    float right_glint1_y = 14;
+    float right_glint1_distance = 15;
+    float right_glint2_x = 16;
+    float right_glint2_y = 17;
+    float right_glint2_distance = 18;
+    float right_glint3_x = 19;
+    float right_glint3_y = 20;
+    float right_glint3_distance = 21;
+    float right_glint4_x = 22;
+    float right_glint4_y = 23;
+    float right_glint4_distance = 24;
+    float right_glint5_x = 25;
+    float right_glint5_y = 26;
+    float right_glint5_distance = 27;
+    float right_glint6_x = 28;
+    float right_glint6_y = 29;
+    float right_glint6_distance = 30;
+    float right_glint7_x = 31;
+    float right_glint7_y = 32;
+    float right_glint7_distance = 33;
+    float right_glint8_x = 34;
+    float right_glint8_y = 35;
+    float right_glint8_distance = 36;
+    float left_glint1_x = 37;
+    float left_glint1_y = 38;
+    float left_glint1_distance = 39;
+    float left_glint2_x = 40;
+    float left_glint2_y = 41;
+    float left_glint2_distance = 42;
+    float left_glint3_x = 43;
+    float left_glint3_y = 44;
+    float left_glint3_distance = 45;
+    float left_glint4_x = 46;
+    float left_glint4_y = 47;
+    float left_glint4_distance = 48;
+    float left_glint5_x = 49;
+    float left_glint5_y = 50;
+    float left_glint5_distance = 51;
+    float left_glint6_x = 52;
+    float left_glint6_y = 53;
+    float left_glint6_distance = 54;
+    float left_glint7_x = 55;
+    float left_glint7_y = 56;
+    float left_glint7_distance = 57;
+    float left_glint8_x = 58;
+    float left_glint8_y = 59;
+    float left_glint8_distance = 60;
+    float right_light1_color_r = 61;
+    float right_light1_color_g = 62;
+    float right_light1_color_b = 63;
+    float right_light1_loc_x = 64;
+    float right_light1_loc_y = 65;
+    float right_light1_loc_z = 66;
+    float right_light2_color_r = 67;
+    float right_light2_color_g = 68;
+    float right_light2_color_b = 69;
+    float right_light2_loc_x = 70;
+    float right_light2_loc_y = 71;
+    float right_light2_loc_z = 72;
+    float right_combo_x = 73;
+    float right_combo_y = 74;
+    float left_light1_color_r = 75;
+    float left_light1_color_g = 76;
+    float left_light1_color_b = 77;
+    float left_light1_loc_x = 78;
+    float left_light1_loc_y = 79;
+    float left_light1_loc_z = 80;
+    float left_light2_color_r = 81;
+    float left_light2_color_g = 82;
+    float left_light2_color_b = 83;
+    float left_light2_loc_x = 84;
+    float left_light2_loc_y = 85;
+    float left_light2_loc_z = 86;
+    float left_combo_x = 87;
+    float left_combo_y = 88;
+    float right_gaze_pitch = 89;
+    float right_gaze_roll = 90;
+    float right_gaze_yaw = 91;
+    float right_cornea_center_x = 92;
+    float right_cornea_center_y = 93;
+    float right_cornea_center_z = 94;
+    float left_gaze_pitch = 95;
+    float left_gaze_roll = 96;
+    float left_gaze_yaw = 97;
+    float left_cornea_center_x = 98;
+    float left_cornea_center_y = 99;
+    float left_cornea_center_z = 100;
+    float pog_right_x = 101;
+    float pog_right_y = 102;
+    float pog_left_x = 103;
+    float pog_left_y = 104;
+}
+
+
+// This is to be filled out once CogLoad is completed in Core-Pipeline
+message CognitiveLoadResult {
+    float current_load = 1;
+}
+
+message Result {
+    UnetMetricsResult unet_metrics = 1;
+    InstaEyesMetricsResult instaeyes_metrics = 2;
+    GazeMetricsResult gaze_metrics = 3;
+    CognitiveLoadResult cognitive_load = 4;
+}
+
+// Provides information to the annotator that specifies how to process the
+// request.
+message VideoConfig {
+    // Requested annotation feature.
+    repeated Feature features = 1;
+
+    uint32 width = 2;
+    uint32 height = 3;
+    uint32 channels = 4;
+
+    string video_id = 5;
+
+    // determines whether 'content' will be stored in s3 or not.
+    bool store = 6;
+}

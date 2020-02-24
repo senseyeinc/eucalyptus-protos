@@ -1,2 +1,5 @@
-# eucalyptus-protos
-Protobuf files for Senseye's Eucalyptus API
+# README #
+Repository for Senseye's protobufs.
+
+## Building protos
+`./build-protos.sh`
